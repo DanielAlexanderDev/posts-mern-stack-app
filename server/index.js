@@ -1,13 +1,9 @@
-const express = require("express");
-const routerApi = require("./routes");
 const connectDB = require("./db");
+const app = require("./app");
+const { PORT } = require("./config");
 
-const app = express();
-const PORT = 3000;
-app.use(express.json());
 connectDB();
 
-routerApi(app);
 app.listen(PORT, () => {
-  console.log(`escuchando en puerto ${PORT}`);
+  console.log(`escuchando en puerto ${PORT} `);
 });
