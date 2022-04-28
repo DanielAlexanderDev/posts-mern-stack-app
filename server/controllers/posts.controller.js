@@ -56,12 +56,11 @@ const deletePost = async (req, res) => {
     const deletedPost = await Post.findByIdAndDelete(id);
     console.log(deletedPost);
 
-    if (!deletedPost) return res.status(404).send("not found");
-
-    if (deletedPost.image.public_id) {
+    if (deletedPost && deletedPost.image.public_id) {
       await deleteImage(deletedPost.image.public_id);
     }
-    return res.status(204);
+    if (!deletedPost) return res.sendStatus(404);
+    return res.sendStatus(204);
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }

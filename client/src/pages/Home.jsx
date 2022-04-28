@@ -2,25 +2,39 @@ import React from "react";
 import { usePost } from "../context/postsContext";
 import { VscEmptyWindow } from "react-icons/vsc";
 import { Link } from "react-router-dom";
+import Post from "../components/Post";
 
 export const Home = () => {
   const { posts } = usePost();
   if (posts.length === 0) {
     return (
       <div className="flex flex-column justify-center items-center">
-        <VscEmptyWindow className="w-48 h-48 text-white" />
-        <h1 className="text-white">No posts yet</h1>
+        <VscEmptyWindow className="w-48 h-48 text-neutral-900" />
+        <h1 className="text-neutral-900">No posts yet</h1>
       </div>
     );
   }
   return (
     <div>
-      <Link to="/new">Create New Post</Link>
-      {posts.map((el) => (
-        <div key={el._id}>
-          <h1>{el.title}</h1>
-        </div>
-      ))}
+      <h1 className="text-center text-3xl font-bold my-6">Posts</h1>
+      <Link to="/new">
+        <button
+          type="button"
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        >
+          Create New Post
+        </button>
+      </Link>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {posts.map((post) => (
+          <Post
+            key={post._id}
+            title={post.title}
+            id={post._id}
+            description={post.description}
+          />
+        ))}
+      </div>
     </div>
   );
 };

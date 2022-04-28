@@ -26,9 +26,17 @@ export const PostForm = () => {
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit}>
             <Field name="title" placeholder="title" />
-            <ErrorMessage component="p" className="" name="title" />
+            <ErrorMessage
+              component="p"
+              className="text-red-400 text-sm"
+              name="title"
+            />
             <Field name="description" placeholder="description" />
-            <ErrorMessage component="p" name="description" />
+            <ErrorMessage
+              component="p"
+              className="text-red-400 text-sm"
+              name="description"
+            />
             <button type="submit">Save</button>
           </Form>
         )}
