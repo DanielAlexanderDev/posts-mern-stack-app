@@ -54,7 +54,6 @@ const deletePost = async (req, res) => {
   try {
     const { id } = req.params;
     const deletedPost = await Post.findByIdAndDelete(id);
-    console.log(deletedPost);
 
     if (deletedPost && deletedPost.image.public_id) {
       await deleteImage(deletedPost.image.public_id);

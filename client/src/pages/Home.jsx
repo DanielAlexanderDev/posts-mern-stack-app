@@ -16,15 +16,18 @@ export const Home = () => {
   }
   return (
     <div>
-      <h1 className="text-center text-3xl font-bold my-6">Posts</h1>
-      <Link to="/new">
-        <button
-          type="button"
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        >
-          Create New Post
-        </button>
-      </Link>
+      <h1 className="text-center text-3xl font-bold my-6">My Posts</h1>
+      <div className="flex justify-between items-center my-2">
+        <h2 className="text-xl font-semibold">{`There are ${posts.length} posts`}</h2>
+        <Link to="/new">
+          <button
+            type="button"
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >
+            + Create New Post
+          </button>
+        </Link>
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {posts.map((post) => (
           <Post
