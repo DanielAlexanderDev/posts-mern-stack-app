@@ -8,15 +8,16 @@ export const Home = () => {
   const { posts } = usePost();
   if (posts.length === 0) {
     return (
-      <div className="flex flex-column justify-center items-center">
-        <VscEmptyWindow className="w-48 h-48 text-neutral-900" />
-        <h1 className="text-neutral-900">No posts yet</h1>
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-between items-center ">
+          <h2 className="text-neutral-700">No posts yet</h2>
+          <VscEmptyWindow size={"3em"} className=" text-neutral-900 " />
+        </div>
       </div>
     );
   }
   return (
-    <div>
-      <h1 className="text-center text-3xl font-bold my-6">My Posts</h1>
+    <div className="mb-6">
       <div className="flex justify-between items-center my-2">
         <h2 className="text-xl font-semibold">{`There are ${posts.length} posts`}</h2>
         <Link to="/new">

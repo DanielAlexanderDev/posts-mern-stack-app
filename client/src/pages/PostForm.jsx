@@ -20,10 +20,10 @@ export const PostForm = () => {
         setPost(res.data);
       }
     })();
-  }, [params.id]);
+  }, [params.id, getPost]);
   return (
-    <div className="flex items-center justify-center ">
-      <div className="bg-gray-200 p-10 shadow-sm shadow-gray-600 w-3/5">
+    <div className="flex items-center justify-center w-1/2">
+      <div className="bg-gray-200 p-10 shadow-sm shadow-gray-600 w-auto">
         <header className="flex justify-between items-center pb-4">
           <h3 className="text-xl text-black font-bold">
             {params.id ? "Update Post" : "New Post"}
