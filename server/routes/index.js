@@ -1,9 +1,9 @@
-const express = require("express");
-const postsRouter = require("./posts.routes");
+import express from 'express'
+import postsRouter from './posts.routes.js'
 
 function routerApi(app) {
-  const router = express.Router();
-  app.use("/api/v1", router);
-  router.use("/posts", postsRouter);
+  const router = express.Router()
+  app.use('/api/v1', router)
+  router.use('/posts', postsRouter)
 }
-module.exports = routerApi;
+export default routerApi

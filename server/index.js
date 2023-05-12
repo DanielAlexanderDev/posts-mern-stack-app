@@ -1,9 +1,9 @@
-const connectDB = require("./db");
-const app = require("./app");
-const { PORT } = require("./config");
+import connectDB from './db.js'
+import app from './app.js'
+import { PORT } from './config.js'
 
-connectDB();
+connectDB()
 
 app.listen(PORT, () => {
-  console.log(`escuchando en puerto ${PORT} `);
-});
+  console.log(`escuchando en puerto ${PORT} `)
+})

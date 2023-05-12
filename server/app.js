@@ -1,19 +1,19 @@
-const express = require("express");
-const fileUpload = require("express-fileupload");
-const routerApi = require("./routes/index");
+import express from 'express'
+import fileUpload from 'express-fileupload'
+import routerApi from './routes/index.js'
 
-const app = express();
+const app = express()
 
 //middlewares
-app.use(express.json());
+app.use(express.json())
 app.use(
   fileUpload({
     useTempFiles: true,
-    temFileDir: "./upload",
+    temFileDir: './upload',
   })
-);
+)
 
 //routes
-routerApi(app);
+routerApi(app)
 
-module.exports = app;
+export default app
